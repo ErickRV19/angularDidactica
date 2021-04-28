@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-level.component.css']
 })
 export class CardLevelComponent implements OnInit {
-  items = [1,2,3,4];
+  items = [1, 2, 3, 4];
 
   constructor() { }
 

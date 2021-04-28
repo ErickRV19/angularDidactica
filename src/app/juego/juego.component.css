@@ -18,11 +18,10 @@ a{
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin: 2em;
 }
-.start{
-  display: flex;
-  flex-wrap: wrap;
+
+.cartas{
+  padding: 0em 6em;
 }
 
 .carta h5{

@@ -9,6 +9,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { CardMenuComponent } from './components/card-menu/card-menu.component';
 import { CardLevelComponent } from './components/card-level/card-level.component';
 import { LevelComponent } from './components/level/level.component';
+import { JuegoComponent } from './juego/juego.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LevelComponent } from './components/level/level.component';
     LoginComponent,
     CardMenuComponent,
     CardLevelComponent,
-    LevelComponent
+    LevelComponent,
+    JuegoComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,

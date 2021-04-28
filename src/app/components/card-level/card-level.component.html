@@ -1,9 +1,16 @@
 
 <ul>
   <li *ngFor="let item of items">
-    <a routerLink="/memorama/game ">
+    <a routerLink="/memorama/game">
       <div class="carta" style="width: 15rem; height: 18rem;">
-        <h5 class="card-title"> nivel{{item}}</h5>
+        <h5 class="card-title">{{item}}</h5>
+        <div class="start">
+          <ul>
+            <li *ngFor="let item of items; let i=index">
+              <img src="../../../assets/img/icon-estrella.png">
+            </li>
+          </ul>
+        </div>
       </div>
     </a>
   </li>
