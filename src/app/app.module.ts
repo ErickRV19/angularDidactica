@@ -13,6 +13,10 @@ import { JuegoComponent } from './juego/juego.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { PersonajesComponent } from './pages/recuperar/componentes/personajes/personajes.component';
 import { ColoresComponent } from './pages/recuperar/componentes/colores/colores.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,11 +30,14 @@ import { ColoresComponent } from './pages/recuperar/componentes/colores/colores.
     JuegoComponent,
     CardsComponent,
     PersonajesComponent,
-    ColoresComponent
+    ColoresComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
