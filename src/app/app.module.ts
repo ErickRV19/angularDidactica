@@ -13,6 +13,7 @@ import { JuegoComponent } from './juego/juego.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { PersonajesComponent } from './pages/recuperar/componentes/personajes/personajes.component';
 import { ColoresComponent } from './pages/recuperar/componentes/colores/colores.component';
+import { SonidoComponent } from './components/sonido/sonido.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ColoresComponent } from './pages/recuperar/componentes/colores/colores.
     JuegoComponent,
     CardsComponent,
     PersonajesComponent,
-    ColoresComponent
+    ColoresComponent,
+    SonidoComponent
   ],
   imports: [
     BrowserModule,
