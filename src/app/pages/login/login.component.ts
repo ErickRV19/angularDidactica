@@ -9,8 +9,8 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  email = ' ';
-  password = ' ';
+  email = '';
+  password = '';
 
   constructor(private router: Router, public auth: AngularFireAuth)  { }
 
@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   this.auth.signInWithEmailAndPassword(this.email, this.password)
   .catch(error => console.log(error.code)
   )
-  .then(res => console.log(res)),
-  this.router.navigate(['/memorama']);
+  .then(res => console.log(res));
+    //this.router.navigate(['/memorama']);
   }
 
 }
