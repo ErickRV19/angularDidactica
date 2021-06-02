@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecuperarComponent implements OnInit {
 
+  sonido = "sonido.ogg";
+
   constructor() { }
 
   ngOnInit(): void {

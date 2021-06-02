@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  sonido = "sonido.ogg";
   email = ' ';
   password = ' ';
 
