@@ -17,6 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { SonidoComponent } from './components/sonido/sonido.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { environment } from 'src/environments/environment';
     CardsComponent,
     PersonajesComponent,
     ColoresComponent,
-    LoginComponent
+    LoginComponent,
+    SonidoComponent
   ],
   imports: [
     BrowserModule,
