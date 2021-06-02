@@ -1,4 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+
+import {AngularFireAuth} from '@angular/fire/auth';
+import { Router } from "@angular/router";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-recuperar',
@@ -8,10 +18,26 @@ import { Component, OnInit } from '@angular/core';
 export class RecuperarComponent implements OnInit {
 
   sonido = "sonido.ogg";
+  email = ' ';
 
-  constructor() { }
-
+  constructor(private router: Router, public auth: AngularFireAuth) { }
   ngOnInit(): void {
   }
+  recuperar() {
+    return this.auth.sendPasswordResetEmail(this.email)
+    .then(() => this.openModal(true))
+    .catch((error) => this.openModalError(true));
+    }
+
+    public mdlSampleIsOpen : boolean = false;
+    public mdlSampleIsOpenError : boolean = false;
+
+    public openModal(open : boolean) : void {
+      this.mdlSampleIsOpen = open;
+    }
+    public openModalError(open : boolean) : void {
+      this.mdlSampleIsOpenError = open;
+    }
+
 
 }

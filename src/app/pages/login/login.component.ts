@@ -8,15 +8,9 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-<<<<<<< HEAD
-
-  email = '';
-  password = '';
-=======
   sonido = "sonido.ogg";
   email = ' ';
   password = ' ';
->>>>>>> a0c677756b19d60908740200a8b7e3d1435c09d2
 
   constructor(private router: Router, public auth: AngularFireAuth)  { }
 
