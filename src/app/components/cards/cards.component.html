@@ -1,7 +1,14 @@
 <ul>
   <li *ngFor="let item of items">
-      <div class="carta" [ngStyle]="{background : 'url(./assets/img/' + 'carta' + '.png'+ ')' }">
-        <h5 class="card-title"></h5>
-      </div>
+
+<div class="carta" (click)="cardClicked()" [@cardFlip]="data.state">
+	<div class="face back">
+		<img src="./../../../assets/img/carta.png" />
+  </div>
+		<div class="face front">
+			<img [src]="'https://source.unsplash.com/' + data.imageId + '/200x300'" />
+  </div>
+		</div>
   </li>
 </ul>
+
