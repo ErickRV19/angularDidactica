@@ -12,13 +12,14 @@ a{
   text-decoration: none;
 }
 .carta{
-  background-color: darkgray;
   display:flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
   margin: 2em;
+  width: 12rem;
+  height: 12rem;
 }
 
 .carta h5{

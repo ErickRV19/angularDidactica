@@ -2,7 +2,7 @@
 <ul>
   <li *ngFor="let item of items">
     <a routerLink="/memorama/level">
-      <div class="carta" style="width: 18rem; height: 18rem;">
+      <div class="carta" [ngStyle]="{background : 'url(./assets/img/' + item + '.jpg'+ ')'}">
         <h5 class="card-title">{{item.toUpperCase()}} </h5>
       </div>
     </a>

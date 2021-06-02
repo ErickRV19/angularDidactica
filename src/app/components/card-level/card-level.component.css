@@ -12,7 +12,8 @@ a{
   text-decoration: none;
 }
 .carta{
-  background-color: darkgray;
+  background-color: rgb(0, 73, 184);
+  color: white;
   display:flex;
   flex-direction: column;
   text-align: center;
@@ -20,9 +21,10 @@ a{
   align-items: center;
   margin: 2em;
 }
-.start{
+.start ul{
   display: flex;
   flex-wrap: wrap;
+  width: 10rem;
 }
 
 .carta h5{

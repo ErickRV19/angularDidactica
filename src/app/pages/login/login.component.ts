@@ -9,8 +9,8 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   sonido = "sonido.ogg";
-  email = ' ';
-  password = ' ';
+  email = '';
+  password = '';
 
   constructor(private router: Router, public auth: AngularFireAuth)  { }
 
@@ -18,11 +18,15 @@ export class LoginComponent implements OnInit {
   }
   login() {
   //    console.log($(this.email), $(this.password));
-  this.auth.signInWithEmailAndPassword(this.email, this.password)
-  .catch(error => console.log(error.code)
-  )
-  .then(res => console.log(res));
+  return this.auth.signInWithEmailAndPassword(this.email, this.password)
+  .then(() => this.router.navigate(['/memorama']))
+    .catch((error) => this.openModalError(true));
     //this.router.navigate(['/memorama']);
   }
+  public openModalError(open : boolean) : void {
+    this.mdlSampleIsOpenError = open;
+  }
+  public mdlSampleIsOpenError : boolean = false;
+
 
 }

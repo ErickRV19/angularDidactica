@@ -1,0 +1,23 @@
+
+
+.modal-dialog {
+  -webkit-transform: translate(0,-50%);
+  -o-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  top: 20%;
+  margin: 0 auto;
+}
+.modal-header{
+  background-color:#0D6EFD;
+  color: white;
+}
+.modal-headerError{
+  background-color:#fd0d0d;
+  color: white;
+}
+.modal-content {
+  overflow:hidden;
+}
+.icon-signal{
+  align-self: center;
+}
