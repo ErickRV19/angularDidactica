@@ -1,14 +1,12 @@
 <ul>
-  <li *ngFor="let item of items">
-
-<div class="carta" (click)="cardClicked()" [@cardFlip]="data.state">
-	<div class="face back">
-		<img src="./../../../assets/img/carta.png" />
-  </div>
-		<div class="face front">
-			<img [src]="'https://source.unsplash.com/' + data.imageId + '/200x300'" />
-  </div>
+  <li *ngFor="let item of items; let i = index">
+	<div class="carta" (click)="cardClicked(i, item)" [@cardFlip]="item.state">
+		<div class="face back">
+			<img src="./../../../assets/img/carta.png" />
 		</div>
+		<div class="face front">
+			<img [src]="'https://source.unsplash.com/' + item.imageId + '/200x300'" />
+		</div>
+	</div>
   </li>
 </ul>
-
