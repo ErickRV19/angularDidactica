@@ -1,0 +1,33 @@
+*{
+    text-align: center;
+  }
+  li, ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 1em;
+  }
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  .carta{
+    background-color: rgb(0, 73, 184);
+    color: white;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+  }
+  .start ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 10rem;
+  }
+  
+  .carta h5{
+    justify-items: center;
+  }
+  

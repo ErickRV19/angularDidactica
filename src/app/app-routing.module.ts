@@ -1,20 +1,9 @@
-import { MemoramaComponent } from './memorama/memorama.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { RecuperarComponent } from './pages/recuperar/recuperar.component';
-import { CardLevelComponent } from './components/card-level/card-level.component';
-import { LevelComponent } from './components/level/level.component';
-import { JuegoComponent } from './juego/juego.component';
-import { LoginComponent } from './pages/login/login.component';
 
 const rutas: Routes = [
-  { path: '', component: RecuperarComponent },
-  { path: 'recuperar', component: RecuperarComponent },
-  { path: 'memorama', component: MemoramaComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'memorama/level', component: LevelComponent },
-  { path: 'memorama/game', component: JuegoComponent }
+  { path: 'memorama', loadChildren: () => import('./memorama/memorama.module').then(m => m.MemoramaModule) },
+  { path: '**', loadChildren: () => import('./memorama/memorama.module').then(m => m.MemoramaModule)}
 ];
 
 @NgModule({

@@ -1,0 +1,36 @@
+*{
+    text-align: center;
+  }
+  li, ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  
+  .carta{
+    background-repeat: no-repeat;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    width: 25em;
+    height: 25em;
+    border: 3px solid #508dff;
+    border-radius: 1em;
+  }
+  
+  .carta h5{
+    justify-items: center;
+    align-self: flex-end;
+    background-color: #508dff;
+    color: white;
+    font-size: large;
+    padding: 1em;
+    border-radius: 1em;
+  }
+  
