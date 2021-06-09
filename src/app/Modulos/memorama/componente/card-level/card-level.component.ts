@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-level',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-level.component.css']
 })
 export class CardLevelComponent implements OnInit {
-
+  @Input() nivel: any;
   items = [1, 2, 3, 4];
   
   constructor() { }

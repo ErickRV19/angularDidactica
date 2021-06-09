@@ -39,21 +39,21 @@ export class TarjetasNumServices {
             imageId: "6N-PvrURkZE",
             state: "default"
         },
-        {
-            id: 7,
-            imageId: "kt0QS0FPyCc",
-            state: "default"
-        },
-        {
-            id: 8,
-            imageId: "sD0y9djR-Jk",
-            state: "default"
-        },
-        {
-            id: 9,
-            imageId: "PwQHfxo3Q2Y",
-            state: "default"
-        }
+        // {
+        //     id: 7,
+        //     imageId: "kt0QS0FPyCc",
+        //     state: "default"
+        // },
+        // {
+        //     id: 8,
+        //     imageId: "sD0y9djR-Jk",
+        //     state: "default"
+        // },
+        // {
+        //     id: 9,
+        //     imageId: "PwQHfxo3Q2Y",
+        //     state: "default"
+        // }
     ];
 
     gettarjetas(): any{

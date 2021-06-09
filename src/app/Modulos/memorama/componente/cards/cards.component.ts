@@ -5,7 +5,8 @@ import {
   transition,
   trigger
 } from "@angular/animations";
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TarjetasLetrasServices } from "../../services/tarejastasletras.services";
 import { TarjetasNumServices } from "../../services/tarjetasnum.services";
 
 
@@ -49,6 +50,8 @@ export interface CardData {
   ]
 })
 export class CardsComponent implements OnInit {
+  @Input() nivel: any;
+
   data: CardData[] = [];
 
   items: CardData[] = [];
@@ -57,10 +60,17 @@ export class CardsComponent implements OnInit {
     imgId: ''
   };
 
-  constructor(private  tarjetasnumServices: TarjetasNumServices) { }
+  constructor(
+    private  tarjetasnumServices: TarjetasNumServices,
+    private tarjetasletrasServices: TarjetasLetrasServices
+    ) { }
 
   ngOnInit(): void {
-    this.data = this.tarjetasnumServices.gettarjetas();
+    if(this.nivel === 'letras'){
+      this.data = this.tarjetasletrasServices.gettarjetas();
+    }else{
+      this.data = this.tarjetasnumServices.gettarjetas();
+    }
     for (let i = 0; i < (this.data.length * 2); i++) {
       if (this.data[i]) {
         this.items.push(this.data[i]);
@@ -101,8 +111,8 @@ export class CardsComponent implements OnInit {
       if (this.cardBefore.imgId === card.imageId) {
         //cartas concuerdan
         //elimina la carta actual que selecciono y la carta anterior
-        this.items[pos].state = "matched";
-        this.items[this.cardBefore.pos].state = "matched";
+        this.items[pos].state = "flipped";
+        this.items[this.cardBefore.pos].state = "flipped";
       } else {
         //si las cartas no concuerdan
         //regresa las cartas a su estado normal

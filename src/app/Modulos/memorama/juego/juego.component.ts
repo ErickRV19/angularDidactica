@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./juego.component.css']
 })
 export class JuegoComponent implements OnInit {
-
+  service = 'numeros';
   constructor() { }
 
   ngOnInit(): void {
