@@ -19,12 +19,19 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .cartas{
     padding: 0em 6em;
   }
-  
+
   .carta h5{
     justify-items: center;
   }
-  
+
+  .mi-btn{
+    background-color: rgb(59, 131, 59);
+    color: white;
+    font-weight: 700;
+    padding: .5em;
+
+  }
