@@ -6,6 +6,8 @@ import {
   trigger
 } from "@angular/animations";
 import { Component, OnInit } from '@angular/core';
+import { TarjetasNumServices } from "../../services/tarjetasnum.services";
+
 
 export interface CardData {
   id: number;
@@ -47,58 +49,7 @@ export interface CardData {
   ]
 })
 export class CardsComponent implements OnInit {
-  data: CardData[] = [
-    {
-      id: 0,
-      imageId: "rfpSOlH1JlQ",
-      state: "default"
-    },
-    {
-      id: 1,
-      imageId: "0W98bjFYNKM",
-      state: "default"
-    },
-    {
-      id: 2,
-      imageId: "O5VBFeaf0gQ",
-      state: "default"
-    },
-    {
-      id: 3,
-      imageId: "SFJz9q9EAZc",
-      state: "default"
-    },
-    {
-      id: 4,
-      imageId: "vSNy_bWa5AE",
-      state: "default"
-    },
-    {
-      id: 5,
-      imageId: "P3uJUQ62uXE",
-      state: "default"
-    },
-    {
-      id: 6,
-      imageId: "6N-PvrURkZE",
-      state: "default"
-    },
-    {
-      id: 7,
-      imageId: "kt0QS0FPyCc",
-      state: "default"
-    },
-    {
-      id: 8,
-      imageId: "sD0y9djR-Jk",
-      state: "default"
-    },
-    {
-      id: 9,
-      imageId: "PwQHfxo3Q2Y",
-      state: "default"
-    }
-  ]
+  data: CardData[] = [];
 
   items: CardData[] = [];
   cardBefore = {
@@ -106,22 +57,23 @@ export class CardsComponent implements OnInit {
     imgId: ''
   };
 
-  constructor() { }
+  constructor(private  tarjetasnumServices: TarjetasNumServices) { }
 
   ngOnInit(): void {
-    for (let i = 0; i < (this.data.length*2); i++) {
-      if(this.data[i]){
+    this.data = this.tarjetasnumServices.gettarjetas();
+    for (let i = 0; i < (this.data.length * 2); i++) {
+      if (this.data[i]) {
         this.items.push(this.data[i]);
-      }else{
+      } else {
         var parCard: CardData = {
           id: i,
-          imageId: this.data[i-this.data.length].imageId,
+          imageId: this.data[i - this.data.length].imageId,
           state: "default"
         }
         this.items.push(parCard);
       }
     }
-    this.items.sort(()=> Math.random() - 0.5);
+    this.items.sort(() => Math.random() - 0.5);
   }
 
   cardClicked(pos: number, card: CardData) {
@@ -133,30 +85,30 @@ export class CardsComponent implements OnInit {
     this.verificarMatch(pos, card)
   }
 
-  verificarMatch(pos: number, card: CardData){
+  verificarMatch(pos: number, card: CardData) {
     //verifica si ya guardaste algo antes
-    if(this.cardBefore.imgId === ''){
+    if (this.cardBefore.imgId === '') {
       //si no hay nada guarda la carta
       this.cardBefore.pos = pos;
       this.cardBefore.imgId = card.imageId;
-      
-    }else if(this.cardBefore.pos === pos){
+
+    } else if (this.cardBefore.pos === pos) {
       //selecciono la misma carta
       console.log('selecciono la misma');
-    }else{
+    } else {
       //si no se guardo nada antes
       //verifica si las cartas coinciden con su imagen
-      if(this.cardBefore.imgId === card.imageId){
+      if (this.cardBefore.imgId === card.imageId) {
         //cartas concuerdan
         //elimina la carta actual que selecciono y la carta anterior
         this.items[pos].state = "matched";
         this.items[this.cardBefore.pos].state = "matched";
-      }else{
+      } else {
         //si las cartas no concuerdan
         //regresa las cartas a su estado normal
         this.items[pos].state = "default";
         this.items[this.cardBefore.pos].state = "default";
-        
+
       }
       //limpia la carta guardada
       this.cardBefore.pos = 0
