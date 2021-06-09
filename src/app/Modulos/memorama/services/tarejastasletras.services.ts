@@ -6,52 +6,52 @@ export class TarjetasLetrasServices {
     private objetotarjetas: any[] = [
         {
             id: 0,
-            imageId: "rfpSOlH1JlQ",
+            imageId: "t0N-LwOu0hg",
             state: "default"
         },
         {
             id: 1,
-            imageId: "0W98bjFYNKM",
+            imageId: "e81OmWcGaB0",
             state: "default"
         },
         {
             id: 2,
-            imageId: "O5VBFeaf0gQ",
+            imageId: "9onsKFX0inc",
             state: "default"
         },
         {
             id: 3,
-            imageId: "SFJz9q9EAZc",
+            imageId: "T65KpFT2p-4",
             state: "default"
         },
         {
             id: 4,
-            imageId: "vSNy_bWa5AE",
+            imageId: "xngZY8iEu-k",
             state: "default"
         },
         {
             id: 5,
-            imageId: "P3uJUQ62uXE",
+            imageId: "NrrVQvow3kk",
             state: "default"
         },
         {
             id: 6,
-            imageId: "6N-PvrURkZE",
+            imageId: "R3_VhdZSk3U",
             state: "default"
         },
         {
             id: 7,
-            imageId: "kt0QS0FPyCc",
+            imageId: "YL3C6L_7lQQ",
             state: "default"
         },
         {
             id: 8,
-            imageId: "sD0y9djR-Jk",
+            imageId: "62Phjv4KUdo",
             state: "default"
         },
         {
             id: 9,
-            imageId: "PwQHfxo3Q2Y",
+            imageId: "SjN3x8aqe-w",
             state: "default"
         }
     ];
