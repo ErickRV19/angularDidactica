@@ -8,7 +8,7 @@
             class="nav-link active"
             id="tab-login"
             data-mdb-toggle="pill"
-            [routerLink]="['login']"
+            [routerLink]="['/login']"
             role="tab"
             aria-controls="pills-login"
             aria-selected="true"
@@ -19,7 +19,7 @@
           <a
             id="tab-register"
             data-mdb-toggle="pill"
-            href="register"
+            [routerLink]="['/register']"
             role="tab"
             aria-controls="pills-register"
             aria-selected="false"
@@ -39,14 +39,14 @@
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="email" id="loginName" class="form-control" formControlName="email" />
         <label class="form-label" for="loginName">¿Cual es tu Correo?</label>
+        <input type="email" id="loginName" class="form-control" formControlName="email" />
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
+        <label class="form-label" for="loginPassword">Contraseña</label>
         <input type="password" id="loginPassword" class="form-control" formControlName="password"/>
-        <label class="form-label" for="loginPassword">Color favorito</label>
       </div>
 
       <!-- 2 column grid layout -->
@@ -54,7 +54,7 @@
 
         <div class="col-md-6 d-flex justify-content-center">
           <!-- Simple link -->
-          <a href="/recuperar">¿No recuerdas tu color? Aquí te ayudamos</a>
+          <a [routerLink]="['/recuperar']">Recuperar contraseña</a>
         </div>
       </div>
 
@@ -63,7 +63,7 @@
 
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Guarda tu proceso <a href="/register">¡Registrate Amigo!</a></p>
+        <p>Guarda tu proceso <a [routerLink]="['/register']">¡Registrate Amigo!</a></p>
       </div>
     </form>
   </div>

@@ -2,8 +2,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {InicioComponent} from './inicio/inicio.component';
 import {LoginComponent} from './Auth/login/login.component';
 import {RegistroComponent} from './Auth/registro/registro.component';
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {RecuperarComponent} from './Auth/recuperar/recuperar.component';
 import {TarjetasComponent} from './tarjetas/tarjetas.component';
 import {TrazadoComponent} from './Modulos/trazado/trazado.component';

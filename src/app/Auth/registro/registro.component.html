@@ -8,7 +8,7 @@
       class="nav-link"
       id="tab-login"
       data-mdb-toggle="pill"
-      href="/login"
+      [routerLink]="['/login']"
       role="tab"
       aria-controls="pills-login"
       aria-selected="true"
@@ -20,7 +20,7 @@
       class="nav-link active"
       id="tab-register"
       data-mdb-toggle="pill"
-      [routerLink]="['register']"
+      [routerLink]="['/register']"
       role="tab"
       aria-controls="pills-register"
       aria-selected="false"
@@ -39,14 +39,14 @@
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
         <!-- Email input -->
       <div class="form-outline mb-4">
+        <label class="form-label" for="registerEmail">¿Cuál es tu correo? </label>
         <input type="email" id="registerEmail" class="form-control" formControlName="email"/>
-        <label class="form-label" for="registerEmail">¿Cuál es tu Correo? </label>
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
+        <label class="form-label" for="registerPassword">Contraseña</label>
         <input type="password" id="registerPassword" class="form-control" formControlName="password"/>
-        <label class="form-label" for="registerPassword">¿Cual es tu color Favorito?</label>
       </div>
 
       <!-- Submit button -->

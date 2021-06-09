@@ -19,6 +19,8 @@ import { RecuperarComponent } from './Auth/recuperar/recuperar.component';
 import { SonidoComponent } from './sonido/sonido.component';
 import { TarjetasComponent } from './tarjetas/tarjetas.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { TarjetasComponent } from './tarjetas/tarjetas.component';
     AngularFireAuthModule,
     ModulosModule,
     FormsModule,
-    app_routing
+    app_routing,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
