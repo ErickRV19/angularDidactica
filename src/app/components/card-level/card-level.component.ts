@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CardLevelComponent implements OnInit  {
 
     items = [1, 2, 3, 4];
+    Arr = Array;
 
   constructor() { }
 
