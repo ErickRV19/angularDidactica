@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: 'AIzaSyDM7wmDtIiUTU-N2LxAEbGnlbnrVm7M0R0',
-    authDomain: 'pagedidactica.firebaseapp.com',
-    projectId: 'pagedidactica',
-    storageBucket: 'pagedidactica.appspot.com',
-    messagingSenderId: '222220680580',
-    appId: '1:222220680580:web:ae514264f489ecfb57b1d1',
-    measurementId: 'G-M336K1Z5LT'
+  firebaseConfig : {
+    apiKey: "AIzaSyAb48dAAFyzWqvWA-PfwG7pNhfoQYm6PQE",
+    authDomain: "login-ng-30529.firebaseapp.com",
+    projectId: "login-ng-30529",
+    storageBucket: "login-ng-30529.appspot.com",
+    messagingSenderId: "419850784555",
+    appId: "1:419850784555:web:ddcf9a737ee80944057f6e",
+    measurementId: "G-EB7QE6D288"
   },
 };
 

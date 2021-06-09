@@ -19,6 +19,9 @@ import { JuegoComponent } from './juego/juego.component';
     LevelComponent,
     JuegoComponent
   ],
+  exports: [
+    CardLevelComponent
+  ],
   imports: [
     CommonModule,
     MemoramaRoutingModule

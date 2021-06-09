@@ -1,0 +1,29 @@
+#trazado_content
+{
+  background-image: url("src/assets/porque_muerden.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.clearfix
+{
+  float: none; /*Esto no se flota*/
+  clear: both; /*con esta propiedad limpiamos todos los flotados (arriba, izquierda, derecha )*/
+}
+#canvas
+{
+  width: 1000px;
+  height: 300px;
+  border: 1px solid black;
+  margin-left: 150px;
+  background-color: white;
+}
+img
+{
+  margin-left: 25%;
+}
+h1
+{
+  color: greenyellow;
+  font-size: 100px;
+  text-align: center;
+}

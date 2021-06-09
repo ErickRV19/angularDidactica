@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "pageDidactica",
-      "public": "dist/pageDidactica",
+      "target": "DIDACTICA",
+      "public": "dist/DIDACTICA",
       "ignore": [
         "**/.*"
       ],
