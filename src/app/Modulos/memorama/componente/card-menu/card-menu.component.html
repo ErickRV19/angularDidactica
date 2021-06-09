@@ -1,6 +1,6 @@
 <ul>
     <li *ngFor="let item of items">
-        <a routerLink="level">
+        <a routerLink="level/{{item}}">
             <div class="carta" [ngStyle]="{background : 'url(./assets/img/' + item + '.jpg'+ ')'}">
                 <h5 class="card-title">{{item.toUpperCase()}} </h5>
             </div>

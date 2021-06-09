@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-level',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./level.component.css']
 })
 export class LevelComponent implements OnInit {
-
-  constructor() { }
-
+  
+  constructor(private activaRuta: ActivatedRoute) { }
+  nivel = '';
   ngOnInit(): void {
+    this.activaRuta.params.subscribe(params => {
+      this.nivel = params.id;
+    })
   }
 
 }

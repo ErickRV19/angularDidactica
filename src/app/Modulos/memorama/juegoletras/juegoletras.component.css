@@ -1,0 +1,30 @@
+*{
+    text-align: center;
+  }
+  li, ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 1em;
+  }
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  .carta{
+    background-color: darkgray;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cartas{
+    padding: 0em 6em;
+  }
+  
+  .carta h5{
+    justify-items: center;
+  }
+  
