@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardLevelComponent implements OnInit {
   @Input() nivel: any;
   items = [1, 2, 3, 4];
+  arr = Array;
   
   constructor() { }
 

@@ -1,11 +1,11 @@
 <ul>
-    <li *ngFor="let item of items; let i=index;">
+    <li *ngFor="let item of items">
         <a routerLink="/memorama/{{nivel}}/game">
             <div class="carta" style="width: 16rem; height: 18rem;">
                 <h5 class="card-title">Nivel {{item}}</h5>
                 <div class="start">
                     <ul>
-                        <li *ngFor="let item of items; let i=index;">
+                        <li *ngFor="let star of arr(item).fill(1)">
                             <img src="../../../assets/img/icon-estrella.png">
                         </li>
                     </ul>
