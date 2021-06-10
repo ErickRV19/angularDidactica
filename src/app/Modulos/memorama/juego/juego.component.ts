@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TimerComponent } from '../componente/timer/timer.component';
 
 @Component({
   selector: 'app-juego',
@@ -13,6 +14,8 @@ export class JuegoComponent implements OnInit {
   numCard = 0;
   minLimit = 0;
   secLimit = 0;
+
+  @ViewChild (TimerComponent) timer: TimerComponent;
 
   constructor(
     private activaRuta: ActivatedRoute
@@ -67,6 +70,7 @@ export class JuegoComponent implements OnInit {
     if(bool){
       //Codigo en caso de que el jugador haya ganado
       console.log('todos match');
+      this.timer.stopTimer();
     }else{
       //codigo en caso de que el jugador haya perdido
       console.log('time over');

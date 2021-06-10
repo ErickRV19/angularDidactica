@@ -15,23 +15,29 @@ export class TimerComponent implements OnInit {
 
   @Output() timerStopped: EventEmitter<any> = new EventEmitter();
 
+  inter: any = setInterval(null);
+
   constructor() { }
 
   ngOnInit(): void {
-    this.start();
+    this.startTimer();
   }
 
-  start() {
-    var intervalo = setInterval(() => {
+  startTimer() {
+    this.inter = setInterval(() => {
       this.secCount++;
       if (this.minCount === this.minLimit && this.secCount === this.secLimit) {
-        clearInterval(intervalo);
+        this.stopTimer();
         this.timerStopped.emit(false);
       } else if (this.secCount === 60) {
         this.secCount = 0;
         this.minCount++;
       }
     }, 100);
+  }
+
+  stopTimer(){
+    clearInterval(this.inter);
   }
 
 }
