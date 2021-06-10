@@ -12,7 +12,7 @@ import { CardService } from './../../services/cardService';
 export interface CardData {
   id: number;
   imageId: string;
-  state: "default" | "flipped" | "matched" | "see";
+  state: "default" | "flipped" | "matched";
 }
 
 @Component({
@@ -25,12 +25,6 @@ export interface CardData {
         "default",
         style({
           transform: "none"
-        })
-      ),
-      state(
-        "see",
-        style({
-          animation: "flipCard 1s normal",
         })
       ),
       state(
@@ -51,8 +45,7 @@ export interface CardData {
         })
       ),
       transition("default => flipped", [animate("400ms")]),
-      transition("see => flipped", [animate("400ms")]),
-      transition("flipped => default", [animate("400ms")]),
+      transition("flipped => default", [animate("600ms")]),
       transition("* => matched", [animate("400ms")])
     ])
   ]
@@ -101,7 +94,7 @@ export class CardsComponent implements OnInit {
   cardClicked(pos: number, card: CardData) {
     if(this.items[pos].state != "matched"){
       //si no es match verifica
-      this.items[pos].state = (this.items[pos].state === 'default' || this.items[pos].state === 'see') ? 'flipped' : 'default';
+      this.items[pos].state = (this.items[pos].state === 'default') ? 'flipped' : 'default';
       this.verificarMatch(pos, card);
     }
   }
@@ -130,10 +123,11 @@ export class CardsComponent implements OnInit {
       } else {
         //si las cartas no concuerdan
         //regresa las cartas a su estado normal
-        this.items[pos].state = "see";
-        setTimeout(() => {this.items[pos].state = "default";}, 1000)
+        this.items[pos].state = "flipped";
         this.items[this.cardBefore.pos].state = "default";
-
+        setTimeout(() => {
+          this.items[pos].state = "default";
+        }, 500);
       }
       //limpia la carta guardada
       this.cardBefore.pos = 0
