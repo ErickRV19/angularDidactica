@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CardsComponent } from '../componente/cards/cards.component';
 import { TimerComponent } from '../componente/timer/timer.component';
 
 @Component({
@@ -15,8 +16,11 @@ export class JuegoComponent implements OnInit {
   minLimit = 0;
   secLimit = 0;
   isStart = false;
+  msgGame = '¿Listo para jugar?';
+  time = '';
 
   @ViewChild (TimerComponent) timer: TimerComponent;
+  @ViewChild (CardsComponent) cards: CardsComponent;
 
   constructor(
     private activaRuta: ActivatedRoute
@@ -67,20 +71,25 @@ export class JuegoComponent implements OnInit {
     }
   }
 
-  endGame(bool: boolean){
-    if(bool){
-      //Codigo en caso de que el jugador haya ganado
-      //console.log('todos match');
-      this.timer.stopTimer();
-    }else{
-      //codigo en caso de que el jugador haya perdido
-      //console.log('time over');
-    }
-  }
   starGame(){
     this.isStart = true;
     if(this.isStart){
       this.timer.startTimer();
     }
+  }
+
+  endGame(bool: boolean){
+    if(bool){
+      //Codigo en caso de que el jugador haya ganado
+      this.msgGame = 'Has ganado!';
+      this.time = this.timer.minCount+':'+this.timer.secCount;
+    }else{
+      //codigo en caso de que el jugador haya perdido
+      this.msgGame = 'Has Perdido!';
+      this.time = '';
+    }
+    this.isStart = false;
+    this.timer.stopTimer();
+    this.cards.resetGame();
   }
 }

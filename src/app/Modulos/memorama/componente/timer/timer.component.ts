@@ -36,6 +36,8 @@ export class TimerComponent implements OnInit {
   }
 
   stopTimer(){
+    this.minCount = 0;
+    this.secCount=0;
     clearInterval(this.inter);
   }
 

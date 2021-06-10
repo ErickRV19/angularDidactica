@@ -72,9 +72,9 @@ export class CardsComponent implements OnInit {
   ngOnInit(): void {
     //Cargamos la informacion
     if (this.typeLevel === 'letras') {
-      this.data = this.cardService.getAllCardsLyrics(this.numCard);
+      this.data = this.cardService.getAllCardsLyrics(+this.numCard);
     } else {
-      this.data = this.cardService.getAllCardsNumbers(this.numCard);
+      this.data = this.cardService.getAllCardsNumbers(+this.numCard);
     }
 
     //Creamos los pares de las tarjetas
@@ -86,10 +86,11 @@ export class CardsComponent implements OnInit {
           id: i,
           imageId: this.data[i - this.data.length].imageId,
           state: "default"
-        }
+        };
         this.items.push(parCard);
       }
     }
+    
     //barajeamos
     this.items.sort(() => Math.random() - 0.5);
   }
@@ -144,5 +145,16 @@ export class CardsComponent implements OnInit {
     if(this.data.length === this.countMatch){
       this.gameStopped.emit(true);
     }
+  }
+
+  resetGame(){
+    this.countMatch = 0;
+    this.data=[];
+    this.items = [];
+    this.cardBefore = {
+      pos: 1,
+      imgId: ''
+    };
+    this.ngOnInit();
   }
 }
