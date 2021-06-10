@@ -12,7 +12,7 @@ import { CardService } from './../../services/cardService';
 export interface CardData {
   id: number;
   imageId: string;
-  state: "default" | "flipped" | "matched";
+  state: "default" | "flipped" | "matched" | "see";
 }
 
 @Component({
@@ -28,6 +28,12 @@ export interface CardData {
         })
       ),
       state(
+        "see",
+        style({
+          animation: "flipCard 1s normal",
+        })
+      ),
+      state(
         "flipped",
         style({
           transform: "rotateY(180deg)"
@@ -40,11 +46,12 @@ export interface CardData {
           //transform: "scale(0.05)",
           transform: "rotateY(180deg)",
           cursor: "not-allowed",
-          boxShadow: "-1px 3px 33px 0px rgba(255,242,0,1)"
+          boxShadow: "-1px 3px 33px 0px rgba(255,242,0,0.7)"
           
         })
       ),
       transition("default => flipped", [animate("400ms")]),
+      transition("see => flipped", [animate("400ms")]),
       transition("flipped => default", [animate("400ms")]),
       transition("* => matched", [animate("400ms")])
     ])
@@ -94,8 +101,8 @@ export class CardsComponent implements OnInit {
   cardClicked(pos: number, card: CardData) {
     if(this.items[pos].state != "matched"){
       //si no es match verifica
-      this.items[pos].state = (this.items[pos].state === "default") ? "flipped" : "default"
-      this.verificarMatch(pos, card)
+      this.items[pos].state = (this.items[pos].state === 'default' || this.items[pos].state === 'see') ? 'flipped' : 'default';
+      this.verificarMatch(pos, card);
     }
   }
 
@@ -105,6 +112,12 @@ export class CardsComponent implements OnInit {
       //si no hay nada guarda la carta
       this.cardBefore.pos = pos;
       this.cardBefore.imgId = card.imageId;
+
+      //regresa la carta see a su normalidad
+      try{
+        let seeCard = this.items.find(item => item.state === 'see');
+        seeCard.state = 'default';
+      }catch{}
 
     } else if (this.cardBefore.pos === pos) {
       //selecciono la misma carta
@@ -123,7 +136,7 @@ export class CardsComponent implements OnInit {
       } else {
         //si las cartas no concuerdan
         //regresa las cartas a su estado normal
-        this.items[pos].state = "default";
+        this.items[pos].state = "see";
         this.items[this.cardBefore.pos].state = "default";
 
       }
