@@ -14,6 +14,7 @@ export class JuegoComponent implements OnInit {
   numCard = 0;
   minLimit = 0;
   secLimit = 0;
+  isStart = false;
 
   @ViewChild (TimerComponent) timer: TimerComponent;
 
@@ -65,15 +66,21 @@ export class JuegoComponent implements OnInit {
       }
     }
   }
+
   endGame(bool: boolean){
-    console.log('Se acabo el juego');
     if(bool){
       //Codigo en caso de que el jugador haya ganado
-      console.log('todos match');
+      //console.log('todos match');
       this.timer.stopTimer();
     }else{
       //codigo en caso de que el jugador haya perdido
-      console.log('time over');
+      //console.log('time over');
+    }
+  }
+  starGame(){
+    this.isStart = true;
+    if(this.isStart){
+      this.timer.startTimer();
     }
   }
 }

@@ -7,6 +7,6 @@
 
     <h4>Para iniciar con el juego debes de seleccionar los pares de la tarjeta.</h4>
     <div class="cartas">
-        <app-cards [typeLevel]="typeLevel" [numCard]="numCard" (gameStopped)="endGame($event)"></app-cards>
+        <app-cards [typeLevel]="typeLevel" [numCard]="numCard" (gameStopped)="endGame($event)" (click)="isStart ? null : starGame()"></app-cards>
     </div>
 </div>
