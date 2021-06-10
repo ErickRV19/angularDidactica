@@ -82,7 +82,8 @@ export class JuegoComponent implements OnInit {
     if(bool){
       //Codigo en caso de que el jugador haya ganado
       this.msgGame = 'Has ganado!';
-      this.time = this.timer.minCount+':'+this.timer.secCount;
+      this.time = (this.timer.minCount < 10) ? '0'+this.timer.minCount : ''+this.timer.minCount;
+      this.time += (this.timer.secCount < 10) ? ':0'+this.timer.secCount : ':'+this.timer.secCount;
     }else{
       //codigo en caso de que el jugador haya perdido
       this.msgGame = 'Has Perdido!';
