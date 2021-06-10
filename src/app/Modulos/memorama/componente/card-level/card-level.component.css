@@ -4,27 +4,38 @@
   li, ul{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     list-style: none;
-    padding-left: 1em;
   }
   a{
     color: black;
     text-decoration: none;
+    transition: .5s;
+  }
+  a:hover{
+    transform: translateY(-30px);
+    transition: .5s;
   }
   .carta{
-    background-color: rgb(0, 73, 184);
+    background-color: rgb(55, 122, 221);
     color: white;
     display:flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin: 2em;
+    margin: 1em;
+    border-radius: 10px;
+    -webkit-box-shadow: 9px 10px 5px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 10px 5px -5px rgba(0,0,0,0.75);
+    box-shadow: 9px 10px 5px -5px rgba(0,0,0,0.75);
   }
-  .start ul{
+  .start{
     display: flex;
     flex-wrap: wrap;
-    width: 10rem;
+    justify-content: center;
+    width: 8rem;
   }
   
   .carta h5{
