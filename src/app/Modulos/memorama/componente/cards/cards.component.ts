@@ -52,7 +52,7 @@ export interface CardData {
 })
 export class CardsComponent implements OnInit {
   @Input() typeLevel: any;
-  @Input() level: string;
+  @Input() numCard: number;
 
   data: CardData[] = [];
 
@@ -69,9 +69,9 @@ export class CardsComponent implements OnInit {
   ngOnInit(): void {
     //Cargamos la informacion
     if (this.typeLevel === 'letras') {
-      this.data = this.cardService.getAllCardsLyrics(this.numCards(this.level));
+      this.data = this.cardService.getAllCardsLyrics(this.numCard);
     } else {
-      this.data = this.cardService.getAllCardsNumbers(this.numCards(this.level));
+      this.data = this.cardService.getAllCardsNumbers(this.numCard);
     }
 
     //Creamos los pares de las tarjetas
@@ -132,26 +132,6 @@ export class CardsComponent implements OnInit {
       //limpia la carta guardada
       this.cardBefore.pos = 0
       this.cardBefore.imgId = '';
-    }
-  }
-
-  numCards(level: string) {
-    switch (level) {
-      case '1': {
-        //nivel 1
-        return 3
-      }
-      case '2': {
-        //nivel 2
-        return 4
-      }
-      case '3': {
-        //nivel 3
-        return 5
-      }
-      default:{
-        return 7
-      }
     }
   }
 }

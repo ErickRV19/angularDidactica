@@ -10,6 +10,9 @@ export class JuegoComponent implements OnInit {
 
   typeLevel = '';
   level = '';
+  numCard = 0;
+  minLimit = 0;
+  secLimit = 0;
 
   constructor(
     private activaRuta: ActivatedRoute
@@ -20,6 +23,43 @@ export class JuegoComponent implements OnInit {
       this.typeLevel = params.typeLevel;
       this.level= params.level;
     })
+    this.timeCards(this.level);
   }
 
+  timeCards(le:string){
+    switch (le) {
+      case '1': {
+        //nivel 1
+        //1:30
+        this.minLimit = 1;
+        this.secLimit = 30;
+        this.numCard = 3;
+        break;
+      }
+      case '2': {
+        //nivel 2
+        //1:30
+        this.minLimit = 1;
+        this.secLimit = 30;
+        this.numCard = 4;
+        break;
+      }
+      case '3': {
+        //nivel 3
+        //1:30
+        this.minLimit = 1;
+        this.secLimit = 30;
+        this.numCard = 5;
+        break;
+      }
+      default:{
+        //nivel 4
+        //1:30
+        this.minLimit = 1;
+        this.secLimit = 30;
+        this.numCard = 7;
+        break;
+      }
+    }
+  }
 }

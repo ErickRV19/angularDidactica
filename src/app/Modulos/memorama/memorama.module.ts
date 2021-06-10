@@ -8,6 +8,7 @@ import { CardLevelComponent } from './componente/card-level/card-level.component
 import { CardsComponent } from './componente/cards/cards.component';
 import { LevelComponent } from './componente/level/level.component';
 import { JuegoComponent } from './juego/juego.component';
+import { TimerComponent } from './componente/timer/timer.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { JuegoComponent } from './juego/juego.component';
     CardsComponent,
     LevelComponent,
     JuegoComponent,
+    TimerComponent,
   ],
   exports: [
     CardLevelComponent
