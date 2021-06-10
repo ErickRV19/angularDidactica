@@ -113,12 +113,6 @@ export class CardsComponent implements OnInit {
       this.cardBefore.pos = pos;
       this.cardBefore.imgId = card.imageId;
 
-      //regresa la carta see a su normalidad
-      try{
-        let seeCard = this.items.find(item => item.state === 'see');
-        seeCard.state = 'default';
-      }catch{}
-
     } else if (this.cardBefore.pos === pos) {
       //selecciono la misma carta
       //console.log('selecciono la misma');
@@ -137,6 +131,7 @@ export class CardsComponent implements OnInit {
         //si las cartas no concuerdan
         //regresa las cartas a su estado normal
         this.items[pos].state = "see";
+        setTimeout(() => {this.items[pos].state = "default";}, 1000)
         this.items[this.cardBefore.pos].state = "default";
 
       }
