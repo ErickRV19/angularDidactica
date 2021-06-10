@@ -39,7 +39,9 @@ export interface CardData {
           //visibility: "none",
           //transform: "scale(0.05)",
           transform: "rotateY(180deg)",
-          display: 'none'
+          cursor: "not-allowed",
+          boxShadow: "-1px 3px 33px 0px rgba(255,242,0,1)"
+          
         })
       ),
       transition("default => flipped", [animate("400ms")]),
@@ -85,15 +87,16 @@ export class CardsComponent implements OnInit {
         this.items.push(parCard);
       }
     }
+    //barajeamos
+    this.items.sort(() => Math.random() - 0.5);
   }
 
   cardClicked(pos: number, card: CardData) {
-    if (this.items[pos].state === "default") {
-      this.items[pos].state = "flipped";
-    } else {
-      this.items[pos].state = "default";
+    if(this.items[pos].state != "matched"){
+      //si no es match verifica
+      this.items[pos].state = (this.items[pos].state === "default") ? "flipped" : "default"
+      this.verificarMatch(pos, card)
     }
-    this.verificarMatch(pos, card)
   }
 
   verificarMatch(pos: number, card: CardData) {
@@ -105,15 +108,18 @@ export class CardsComponent implements OnInit {
 
     } else if (this.cardBefore.pos === pos) {
       //selecciono la misma carta
-      console.log('selecciono la misma');
+      //console.log('selecciono la misma');
+      //limpia la carta guardada
+      this.cardBefore.pos = 0
+      this.cardBefore.imgId = '';
     } else {
       //si no se guardo nada antes
       //verifica si las cartas coinciden con su imagen
       if (this.cardBefore.imgId === card.imageId) {
         //cartas concuerdan
         //elimina la carta actual que selecciono y la carta anterior
-        this.items[pos].state = "flipped";
-        this.items[this.cardBefore.pos].state = "flipped";
+        this.items[pos].state = "matched";
+        this.items[this.cardBefore.pos].state = "matched";
       } else {
         //si las cartas no concuerdan
         //regresa las cartas a su estado normal
@@ -146,5 +152,4 @@ export class CardsComponent implements OnInit {
       }
     }
   }
-
 }
