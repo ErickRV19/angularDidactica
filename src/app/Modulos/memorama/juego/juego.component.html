@@ -2,11 +2,11 @@
     <h1>Memorama</h1>
     <h3>¡ A jugar !</h3>
     <h3>Nivel {{level}}: {{typeLevel | titlecase}}</h3>
-    <app-timer [minLimit]="minLimit" [secLimit]="secLimit"></app-timer>
+    <app-timer [minLimit]="minLimit" [secLimit]="secLimit" (timerStopped)="endGame($event)"></app-timer>
     <a href="/memorama/numeros/game" class="mi-btn"> Reiniciar Juego</a>
 
     <h4>Para iniciar con el juego debes de seleccionar los pares de la tarjeta.</h4>
     <div class="cartas">
-        <app-cards [typeLevel]="typeLevel" [numCard]="numCard"></app-cards>
+        <app-cards [typeLevel]="typeLevel" [numCard]="numCard" (gameStopped)="endGame($event)"></app-cards>
     </div>
 </div>

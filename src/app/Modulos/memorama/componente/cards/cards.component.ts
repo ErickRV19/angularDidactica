@@ -5,7 +5,7 @@ import {
   transition,
   trigger
 } from "@angular/animations";
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { CardService } from './../../services/cardService';
 
 
@@ -61,6 +61,9 @@ export class CardsComponent implements OnInit {
     pos: 1,
     imgId: ''
   };
+
+  countMatch: number= 0;
+  @Output() gameStopped: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private cardService: CardService
@@ -120,6 +123,8 @@ export class CardsComponent implements OnInit {
         //elimina la carta actual que selecciono y la carta anterior
         this.items[pos].state = "matched";
         this.items[this.cardBefore.pos].state = "matched";
+        this.countMatch ++;
+        this.endGame();
       } else {
         //si las cartas no concuerdan
         //regresa las cartas a su estado normal
@@ -132,6 +137,12 @@ export class CardsComponent implements OnInit {
       //limpia la carta guardada
       this.cardBefore.pos = 0
       this.cardBefore.imgId = '';
+    }
+  }
+
+  endGame(){
+    if(this.data.length === this.countMatch){
+      this.gameStopped.emit(true);
     }
   }
 }

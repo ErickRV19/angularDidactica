@@ -62,4 +62,14 @@ export class JuegoComponent implements OnInit {
       }
     }
   }
+  endGame(bool: boolean){
+    console.log('Se acabo el juego');
+    if(bool){
+      //Codigo en caso de que el jugador haya ganado
+      console.log('todos match');
+    }else{
+      //codigo en caso de que el jugador haya perdido
+      console.log('time over');
+    }
+  }
 }

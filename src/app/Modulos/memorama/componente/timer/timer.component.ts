@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -13,6 +13,8 @@ export class TimerComponent implements OnInit {
   minCount: number = 0;
   secCount: number = 0;
 
+  @Output() timerStopped: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -23,7 +25,8 @@ export class TimerComponent implements OnInit {
     var intervalo = setInterval(() => {
       this.secCount++;
       if (this.minCount === this.minLimit && this.secCount === this.secLimit) {
-        clearInterval(intervalo)
+        clearInterval(intervalo);
+        this.timerStopped.emit(false);
       } else if (this.secCount === 60) {
         this.secCount = 0;
         this.minCount++;
