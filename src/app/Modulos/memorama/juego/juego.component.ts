@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-juego',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./juego.component.css']
 })
 export class JuegoComponent implements OnInit {
-  service = 'numeros';
-  constructor() { }
+
+  typeLevel = '';
+  level = '';
+
+  constructor(
+    private activaRuta: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.activaRuta.params.subscribe(params => {
+      this.typeLevel = params.typeLevel;
+      this.level= params.level;
+    })
   }
 
 }

@@ -20,8 +20,7 @@ import { SonidoComponent } from './sonido/sonido.component';
 import { TarjetasComponent } from './tarjetas/tarjetas.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TarjetasNumServices } from './Modulos/memorama/services/tarjetasnum.services';
-import { TarjetasLetrasServices } from './Modulos/memorama/services/tarejastasletras.services';
+import { CardService } from './Modulos/memorama/services/cardService';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,7 @@ import { TarjetasLetrasServices } from './Modulos/memorama/services/tarejastasle
     BrowserAnimationsModule
   ],
   providers: [
-    TarjetasNumServices,
-    TarjetasLetrasServices
+    CardService
   ],
   bootstrap: [AppComponent]
 })

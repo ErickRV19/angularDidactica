@@ -6,8 +6,7 @@ import {
   trigger
 } from "@angular/animations";
 import { Component, OnInit, Input } from '@angular/core';
-import { TarjetasLetrasServices } from "../../services/tarejastasletras.services";
-import { TarjetasNumServices } from "../../services/tarjetasnum.services";
+import { CardService } from './../../services/cardService';
 
 
 export interface CardData {
@@ -50,7 +49,8 @@ export interface CardData {
   ]
 })
 export class CardsComponent implements OnInit {
-  @Input() nivel: any;
+  @Input() typeLevel: any;
+  @Input() level: string;
 
   data: CardData[] = [];
 
@@ -61,16 +61,18 @@ export class CardsComponent implements OnInit {
   };
 
   constructor(
-    private  tarjetasnumServices: TarjetasNumServices,
-    private tarjetasletrasServices: TarjetasLetrasServices
-    ) { }
+    private cardService: CardService
+  ) { }
 
   ngOnInit(): void {
-    if(this.nivel === 'letras'){
-      this.data = this.tarjetasletrasServices.gettarjetas();
-    }else{
-      this.data = this.tarjetasnumServices.gettarjetas();
+    //Cargamos la informacion
+    if (this.typeLevel === 'letras') {
+      this.data = this.cardService.getAllCardsLyrics(this.numCards(this.level));
+    } else {
+      this.data = this.cardService.getAllCardsNumbers(this.numCards(this.level));
     }
+
+    //Creamos los pares de las tarjetas
     for (let i = 0; i < (this.data.length * 2); i++) {
       if (this.data[i]) {
         this.items.push(this.data[i]);
@@ -83,7 +85,6 @@ export class CardsComponent implements OnInit {
         this.items.push(parCard);
       }
     }
-    this.items.sort(() => Math.random() - 0.5);
   }
 
   cardClicked(pos: number, card: CardData) {
@@ -126,5 +127,24 @@ export class CardsComponent implements OnInit {
     }
   }
 
+  numCards(level: string) {
+    switch (level) {
+      case '1': {
+        //nivel 1
+        return 3
+      }
+      case '2': {
+        //nivel 2
+        return 4
+      }
+      case '3': {
+        //nivel 3
+        return 5
+      }
+      default:{
+        return 7
+      }
+    }
+  }
 
 }
