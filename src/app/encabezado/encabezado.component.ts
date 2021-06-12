@@ -9,9 +9,14 @@ import {Observable} from 'rxjs';
   styleUrls: ['./encabezado.component.css'],
   providers:[AuthService]
 })
-export class EncabezadoComponent {
+export class EncabezadoComponent implements OnInit{
   public user$: Observable<any> = this.authSvc.afAuth.user
   constructor(private authSvc: AuthService, private router: Router) { }
+  main = '';
+
+  ngOnInit(): void{
+    this.main = (this.user$) ? 'tarjetas': 'home';
+  }
 
   async onLogout(){
     try{
