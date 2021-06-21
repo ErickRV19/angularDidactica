@@ -13,9 +13,10 @@ export class EncabezadoComponent implements OnInit{
   public user$: Observable<any> = this.authSvc.afAuth.user
   constructor(private authSvc: AuthService, private router: Router) { }
   main = '';
-
+  
   ngOnInit(): void{
-    this.main = (this.user$) ? 'tarjetas': 'home';
+    this.main = (this.user$) ? '': 'tarjetas';
+    console.log(this.user$)
   }
 
   async onLogout(){
