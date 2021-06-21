@@ -1,9 +1,10 @@
 <div class="main">
     <h1>Memorama</h1>
     <h3>¡ A jugar !</h3>
+    <!-- Componente Timer -->
     <h3>Nivel {{level}}: {{typeLevel | titlecase}}</h3>
     <app-timer [minLimit]="minLimit" [secLimit]="secLimit" (timerStopped)="endGame($event)"></app-timer>
-
+    <!-- Iniciar Juego -->
     <h4>Para iniciar con el juego debes de seleccionar los pares de la tarjeta.</h4>
     <div class="cartas">
         <app-cards [typeLevel]="typeLevel" [numCard]="numCard" (gameStopped)="endGame($event)"></app-cards>

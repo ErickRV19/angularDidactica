@@ -32,7 +32,7 @@ export class TimerComponent implements OnInit {
         this.secCount = 0;
         this.minCount++;
       }
-    }, 100);
+    }, 1000);
   }
 
   stopTimer(){
