@@ -13,16 +13,21 @@ export class EncabezadoComponent implements OnInit{
   public user$: Observable<any> = this.authSvc.afAuth.user
   constructor(private authSvc: AuthService, private router: Router) { }
   main = '';
+  user = {};
   
   ngOnInit(): void{
-    this.main = (this.user$) ? '': 'tarjetas';
-    console.log(this.user$)
+    this.authSvc.getCurrentUser()
+      .then(data => {
+        // console.log(data);
+        this.main = (!data) ? '': 'tarjetas';
+      })
   }
 
   async onLogout(){
     try{
       await this.authSvc.logout();
-      this.router.navigate(['/login']);
+      // this.router.navigate(['/login']);
+      window.location.href = "/login";
     }
     catch (error){console.log(error)}
 

@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
     const {email, password} = this.loginForm.value;
     try {
       const user = await this.authSvc.login(email, password);
-      console.log(user);
+      // console.log(user);
       if (user){
       //home
-        this.router.navigate(['/tarjetas']);
+        // this.router.navigate(['/tarjetas']);
+        window.location.href = "/tarjetas";
       }
     } catch (error){console.log(error)}
   }
