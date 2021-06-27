@@ -109,20 +109,11 @@ export class CardService {
         },
     ]
     
-    getAllCardsLyrics(numCards: number): any{
-        //barajear
-        return this.setStateDefault(1, numCards);
-    }
-    getAllCardsNumbers(numCards: number): any{
-        //barajear
-        return this.setStateDefault(2, numCards);
-    }
-
-    setStateDefault(tipo: number, numCards: number){
+    setStateDefault(tipo: string, numCards: number){
         let cartasParaDar;
-        if(tipo === 1){
+        if(tipo === 'letras'){
             cartasParaDar = this.cardsLetras.sort(() => Math.random() - 0.5).slice(0, numCards);
-        }else if(tipo === 2){
+        }else if(tipo === 'numeros'){
             cartasParaDar = this.cardNumbers.sort(() => Math.random() - 0.5).slice(0, numCards);
         }
         cartasParaDar.forEach(e => {

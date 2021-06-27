@@ -71,11 +71,7 @@ export class CardsComponent implements OnInit {
 
   ngOnInit(): void {
     //Cargamos la informacion
-    if (this.typeLevel === 'letras') {
-      this.data = this.cardService.getAllCardsLyrics(this.numCard);
-    } else {
-      this.data = this.cardService.getAllCardsNumbers(this.numCard);
-    }
+    this.data = this.cardService.setStateDefault(this.typeLevel, this.numCard)
 
     //Creamos los pares de las tarjetas
     for (let i = 0; i < (this.data.length * 2); i++) {
