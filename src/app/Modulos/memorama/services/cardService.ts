@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CardService {
+
+    private cartasParaDar;
     
     private cardsLetras: any[] = [
         {
@@ -111,12 +113,12 @@ export class CardService {
     
     getAllCardsLyrics(numCards: number): any{
         //barajear
-        this.cardsLetras.sort(() => Math.random() - 0.5);
-        return this.cardsLetras.splice(0, numCards);
+        this.cartasParaDar = this.cardsLetras.sort(() => Math.random() - 0.5).slice(0, numCards);
+        return this.cartasParaDar
     }
     getAllCardsNumbers(numCards: number): any{
         //barajear
-        this.cardNumbers.sort(() => Math.random() - 0.5);
-        return this.cardNumbers.splice(0, numCards);
+        this.cartasParaDar = this.cardNumbers.sort(() => Math.random() - 0.5).slice(0, numCards);
+        return this.cartasParaDar
     }
 }

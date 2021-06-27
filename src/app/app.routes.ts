@@ -16,7 +16,7 @@ const app_routes: Routes = [
   { path: 'register', component: RegistroComponent },
   { path: 'memorama', loadChildren: () => import('./Modulos/memorama/memorama.module').then(m => m.MemoramaModule)},
   { path: 'trazado', component: TrazadoComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'memorama' }
 ];
 
 
