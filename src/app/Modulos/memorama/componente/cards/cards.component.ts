@@ -72,7 +72,7 @@ export class CardsComponent implements OnInit {
   ngOnInit(): void {
     //Cargamos la informacion
     if (this.typeLevel === 'letras') {
-      this.data = this.cardService.getAllCardsLyrics(+this.numCard);
+      this.data = this.cardService.getAllCardsLyrics(this.numCard);
     } else {
       this.data = this.cardService.getAllCardsNumbers(this.numCard);
     }
