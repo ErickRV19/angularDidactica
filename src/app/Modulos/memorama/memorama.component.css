@@ -2,3 +2,18 @@
   align-self: center;
   text-align: center;
 }
+.btn-progreso{
+  background-color: coral;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 25px;
+  padding: 2em 6em;
+}
+a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.bar-pro{
+  justify-content: center;
+  display: flex;
+}

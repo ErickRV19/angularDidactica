@@ -7,6 +7,7 @@ h1{
     padding: 3% 0;
 }
 
+
 .graficos{
     display: flex;
     justify-content: space-between;
@@ -14,7 +15,7 @@ h1{
 
 .cartas{
     position: relative;
-    width: 360px;
+    width: 92%;
     height: 170px;
     background: whitesmoke;
     border-radius: 10px;
@@ -26,7 +27,7 @@ h1{
 
 .barra{
     position: absolute;
-    width: 70%;
+    width: 90%;
     height: 30px;
     background: green;
     top: 50%;
@@ -34,13 +35,3 @@ h1{
     transform: translate(-50%, -50%);
 }
 
-.cake{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: violet;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
