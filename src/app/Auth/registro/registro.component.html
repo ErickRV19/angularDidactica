@@ -1,62 +1,41 @@
 <table align="center">
- <tr>
-   <td>
-<!-- Pills navs -->
-<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a
-      class="nav-link"
-      id="tab-login"
-      data-mdb-toggle="pill"
-      [routerLink]="['/login']"
-      role="tab"
-      aria-controls="pills-login"
-      aria-selected="true"
-    >Iniciar sesión</a
-    >
-  </li>
-  <li class="nav-item" role="presentation">
-    <a
-      class="nav-link active"
-      id="tab-register"
-      data-mdb-toggle="pill"
-      [routerLink]="['/register']"
-      role="tab"
-      aria-controls="pills-register"
-      aria-selected="false"
-    >Registrar</a
-    >
-  </li>
-</ul>
-<!-- Pills content -->
-<div class="tab-content">
-  <div
-    class="tab-pane fade show active"
-    id="pills-login"
-    role="tabpanel"
-    aria-labelledby="tab-login"
-  >
-    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-        <!-- Email input -->
-      <div class="form-outline mb-4">
-        <label class="form-label" for="registerEmail">¿Cuál es tu correo? </label>
-        <input type="email" id="registerEmail" class="form-control" formControlName="email"/>
-      </div>
+  <tr>
+    <td>
+      <!-- Pills navs -->
+      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="tab-login" data-mdb-toggle="pill" [routerLink]="['/login']" role="tab"
+            aria-controls="pills-login" aria-selected="true">Iniciar sesión</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="tab-register" data-mdb-toggle="pill" [routerLink]="['/register']" role="tab"
+            aria-controls="pills-register" aria-selected="false">Registrar</a>
+        </li>
+      </ul>
+      <!-- Pills content -->
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+          <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="registerEmail">¿Cuál es tu correo? </label>
+              <input type="email" id="registerEmail" class="form-control" formControlName="email" />
+            </div>
 
-      <!-- Password input -->
-      <div class="form-outline mb-4">
-        <label class="form-label" for="registerPassword">Contraseña</label>
-        <input type="password" id="registerPassword" class="form-control" formControlName="password"/>
-      </div>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="registerPassword">Contraseña</label>
+              <input type="password" id="registerPassword" class="form-control" formControlName="password" />
+            </div>
 
-      <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-3">Registar YA!</button>
-    </form>
-  </div>
-</div>
-<!-- Pills content -->
-   </td>
-   <td><img src = "../../../assets/register.jpg" height="700"></td>
-    </tr>
-  </table>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-3">Registar YA!</button>
+          </form>
+        </div>
+      </div>
+      <!-- Pills content -->
+    </td>
+    <td><img src="../../../assets/register.jpg" height="700"></td>
+  </tr>
+</table>
 <router-outlet></router-outlet>

@@ -18,6 +18,7 @@ export class JuegoComponent implements OnInit {
   isStart = false;
   msgGame = '¿Listo para jugar?';
   time = '';
+  exp= 0;
 
   @ViewChild (TimerComponent) timer: TimerComponent;
   @ViewChild (CardsComponent) cards: CardsComponent;
@@ -42,6 +43,7 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 3;
+        this.exp = 10;
         break;
       }
       case '2': {
@@ -50,6 +52,7 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 4;
+        this.exp = 20;
         break;
       }
       case '3': {
@@ -58,6 +61,7 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 5;
+        this.exp = 30;
         break;
       }
       default:{
@@ -66,6 +70,7 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 7;
+        this.exp = 40;
         break;
       }
     }

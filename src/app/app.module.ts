@@ -21,6 +21,7 @@ import { TarjetasComponent } from './tarjetas/tarjetas.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardService } from './Modulos/memorama/services/cardService';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CardService } from './Modulos/memorama/services/cardService';
     BrowserAnimationsModule
   ],
   providers: [
-    CardService
+    CardService,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })
