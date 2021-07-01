@@ -1,4 +1,4 @@
 export class Usuario {
-    correo: string;
-    experiencia: number;
+    email: string;
+    exp: number;
 }

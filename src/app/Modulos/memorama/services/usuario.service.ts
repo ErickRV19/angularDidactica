@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Usuario } from '../database/usuario.model'
 
 @Injectable({
@@ -7,44 +8,38 @@ import { Usuario } from '../database/usuario.model'
 })
 export class UsuarioService {
 
-  constructor(private angularFirestore: AngularFirestore) { }
+  constructor(
+    private db: AngularFirestore
+  ) { }
 
-  getUsuarioDoc(id){
-    return this.angularFirestore
-    .collection('usuario-collection')
-    .doc(id)
-    .valueChanges()
-  }
-
-  getUsarioList(){
-    return this.angularFirestore
-    .collection('usuario-collection')
-    .snapshotChanges();
-  }
-
-  createUsuario(usuario: Usuario){
+  createUsuario(usuario: Usuario) {
     return new Promise<any>((resolve, rejects) => {
-      this.angularFirestore
+      this.db
         .collection('usuario-collection')
         .add(usuario)
-        .then(response => {console.log(response)}
-            ,error => rejects(error));
+        .then(response => { console.log(response) }
+          , error => rejects(error));
     })
   }
 
-  deleteUsuario(usuario){
-    return this.angularFirestore
-      .collection('usuario-collection')
-      .doc(usuario.id)
-      .delete()
+  getUsarioList() {
+    return this.db
+      .collection("usuario-collection")
+      .valueChanges()
   }
 
+  prueba(email){
+    return this.db
+      .collection("usuario-collection")
+      .doc('email/d@d.com')
+      .valueChanges()
+  }
   updateUsario(usuario: Usuario, id) {
-    return this.angularFirestore
+    return this.db
       .collection("usuario-collection")
       .doc(id)
       .update({
-        experiencia: usuario.experiencia
+        experiencia: usuario.exp
       });
   }
 }
