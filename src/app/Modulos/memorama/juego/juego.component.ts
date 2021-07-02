@@ -95,6 +95,7 @@ export class JuegoComponent implements OnInit {
     if (bool) {
       //Codigo en caso de que el jugador haya ganado
       this.msgGame = `Has ganado ${this.exp} de experencia`;
+      // se obtenien experencia
       this.obtenerExp();
       this.time = (this.timer.minCount < 10) ? '0' + this.timer.minCount : '' + this.timer.minCount;
       this.time += (this.timer.secCount < 10) ? ':0' + this.timer.secCount : ':' + this.timer.secCount;
