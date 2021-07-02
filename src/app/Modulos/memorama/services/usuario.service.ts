@@ -1,45 +1,59 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Usuario } from '../database/usuario.model'
+import { map } from 'rxjs/operators';
+import { Usuario } from '../models/usuario';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  constructor(
-    private db: AngularFirestore
-  ) { }
+  private usuariosCollection: AngularFirestoreCollection<Usuario>;
+  usuarios: Observable<Usuario[]>;
 
-  createUsuario(usuario: Usuario) {
-    return new Promise<any>((resolve, rejects) => {
-      this.db
-        .collection('usuario-collection')
-        .add(usuario)
-        .then(response => { console.log(response) }
-          , error => rejects(error));
-    })
+  constructor(private afs: AngularFirestore) { 
+    this.usuariosCollection = afs.collection<Usuario>('usuarios');
   }
 
-  getUsarioList() {
-    return this.db
-      .collection("usuario-collection")
-      .valueChanges()
+  getOneUsuario(id) {
+    return this.afs
+    .collection('usuarios')
+    .doc(id)
+    .valueChanges()
   }
 
-  prueba(email){
-    return this.db
-      .collection("usuario-collection")
-      .doc('email/d@d.com')
-      .valueChanges()
+  getUsuarioChanges(){
+    return this.afs.collection<Usuario>('usuarios')
+      .valueChanges();
   }
-  updateUsario(usuario: Usuario, id) {
-    return this.db
-      .collection("usuario-collection")
+
+  updateUsuarioExp(usuario: Usuario, id) {
+    return this.afs
+      .collection("usuarios")
       .doc(id)
       .update({
-        experiencia: usuario.exp
+        exp: usuario.exp
       });
+  }
+
+  // getUsuarios(): void{
+  //   this.usuarios = this.usuariosCollection.snapshotChanges().pipe(
+  //     map( actions => actions.map(a => a.payload.doc.data() as Usuario))
+  //   )
+  // }
+
+  saveUsuario(usuario: Usuario): Promise<void>{
+    return new Promise( async (resolve, reject)=>{
+      try{
+        const id = this.afs.createId();
+        const data = {id, ...usuario};
+        const result = this.usuariosCollection.doc(id).set(data);
+        resolve(result);
+      }catch( err ){
+        reject(err.message);
+      }
+    })
   }
 }

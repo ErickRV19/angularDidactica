@@ -21,7 +21,8 @@ import { TarjetasComponent } from './tarjetas/tarjetas.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardService } from './Modulos/memorama/services/cardService';
-import { AngularFirestore } from '@angular/fire/firestore';
+import {AngularFirestoreModule } from '@angular/fire/firestore';
+import { UsuarioService } from './Modulos/memorama/services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     ModulosModule,
     FormsModule,
     app_routing,
@@ -48,7 +50,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   ],
   providers: [
     CardService,
-    AngularFirestore
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

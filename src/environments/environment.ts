@@ -12,11 +12,13 @@ export const environment = {
     messagingSenderId: "70700626858",
     appId: "1:70700626858:web:da6f9b3fbc8a50c2fff1d3",
     measurementId: "G-44MCQ72TRN"
+
   },
+
 };
 
 /*
-// Ellos
+ellos
 apiKey: 'AIzaSyDM7wmDtIiUTU-N2LxAEbGnlbnrVm7M0R0',
     authDomain: 'pagedidactica.firebaseapp.com',
     projectId: 'pagedidactica',
@@ -25,7 +27,7 @@ apiKey: 'AIzaSyDM7wmDtIiUTU-N2LxAEbGnlbnrVm7M0R0',
     appId: '1:222220680580:web:ae514264f489ecfb57b1d1',
     measurementId: 'G-M336K1Z5LT'
 
-// Luis
+mio
 apiKey: "AIzaSyDxt179dJ98BYnyhsIIfkV64Vcdsx6mkWg",
   authDomain: "login-5d27b.firebaseapp.com",
   projectId: "login-5d27b",
@@ -33,4 +35,6 @@ apiKey: "AIzaSyDxt179dJ98BYnyhsIIfkV64Vcdsx6mkWg",
   messagingSenderId: "70700626858",
   appId: "1:70700626858:web:da6f9b3fbc8a50c2fff1d3",
   measurementId: "G-44MCQ72TRN"
-*/
+
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

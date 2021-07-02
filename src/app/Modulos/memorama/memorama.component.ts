@@ -10,18 +10,15 @@ import { UsuarioService } from './services/usuario.service';
 })
 export class MemoramaComponent implements OnInit {
 
-  public user$: Observable<any> = this.authSvc.afAuth.user
-  user = '';
-
+  user='';
   constructor(
     private authSvc: AuthService,
-    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit(): void {
     this.authSvc.getCurrentUser()
-      .then(({ email }) => {
-        this.user = email;
+      .then( response => {
+        this.user = response.email;
       })
   }
 
