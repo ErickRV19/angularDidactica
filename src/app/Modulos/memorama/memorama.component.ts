@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/Auth/services/auth.service';
+import { UsuarioService } from './services/usuario.service';
 
 @Component({
   selector: 'app-memorama',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemoramaComponent implements OnInit {
 
-  constructor() { }
+  user='';
+  constructor(
+    private authSvc: AuthService,
+  ) { }
 
   ngOnInit(): void {
+    this.authSvc.getCurrentUser()
+      .then( response => {
+        this.user = response.email;
+      })
   }
 
 }

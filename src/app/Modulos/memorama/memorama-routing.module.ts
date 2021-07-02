@@ -8,8 +8,8 @@ import { ProgresoComponent } from './progreso/progreso.component';
 const routes: Routes = [
   { path: '', component: MemoramaComponent },
   { path: 'level/:id', component: LevelComponent },
-  { path: 'game/:typeLevel/:level', component: JuegoComponent },
-  { path: 'progreso', component: ProgresoComponent }
+  { path: 'game/:typeLevel/:level/:id', component: JuegoComponent },
+  { path: 'progreso/:user', component: ProgresoComponent }
 ];
 
 @NgModule({
