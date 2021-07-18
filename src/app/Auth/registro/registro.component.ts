@@ -23,7 +23,8 @@ export class RegistroComponent implements OnInit {
     const {email, password} = this.registerForm.value;
     const data = {
       email: email,
-      exp: 10
+      exp: 0,
+      game: []
     }
     try {
       const user = await this.authSvc.register(email, password);

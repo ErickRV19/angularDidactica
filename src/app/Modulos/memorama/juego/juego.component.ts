@@ -20,8 +20,8 @@ export class JuegoComponent implements OnInit {
   msgGame = '¿Listo para jugar?';
   time = '';
   id = '';
-  exp=0;
-  datos:any;
+  exp = 40;
+  datos: any;
 
   @ViewChild(TimerComponent) timer: TimerComponent;
   @ViewChild(CardsComponent) cards: CardsComponent;
@@ -37,7 +37,7 @@ export class JuegoComponent implements OnInit {
       this.level = level;
       this.id = id;
     })
-    this.usuarioSvc.getOneUsuario(this.id).subscribe(res=>{
+    this.usuarioSvc.getOneUsuario(this.id).subscribe(res => {
       this.datos = res;
     })
     this.timeCards(this.level);
@@ -51,7 +51,6 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 3;
-        this.exp = 10;
         break;
       }
       case '2': {
@@ -60,7 +59,6 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 4;
-        this.exp = 20;
         break;
       }
       case '3': {
@@ -69,7 +67,6 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 5;
-        this.exp = 30;
         break;
       }
       default: {
@@ -78,7 +75,6 @@ export class JuegoComponent implements OnInit {
         this.minLimit = 1;
         this.secLimit = 30;
         this.numCard = 7;
-        this.exp = 40;
         break;
       }
     }
@@ -94,11 +90,10 @@ export class JuegoComponent implements OnInit {
   endGame(bool: boolean) {
     if (bool) {
       //Codigo en caso de que el jugador haya ganado
-      this.msgGame = `Has ganado ${this.exp} de experencia`;
-      // se obtenien experencia
-      this.obtenerExp();
       this.time = (this.timer.minCount < 10) ? '0' + this.timer.minCount : '' + this.timer.minCount;
       this.time += (this.timer.secCount < 10) ? ':0' + this.timer.secCount : ':' + this.timer.secCount;
+      // se obtenien experencia
+      this.obtenerExp();
     } else {
       //codigo en caso de que el jugador haya perdido
       this.msgGame = 'Has Perdido!';
@@ -109,10 +104,18 @@ export class JuegoComponent implements OnInit {
     this.cards.resetGame();
   }
 
-  obtenerExp(){
+  obtenerExp() {
+    //sacar experiencia
+    var time = (this.timer.minCount * 60) + this.timer.secCount;
+    var exp = Math.round(this.exp * (1-(((100 / 90) * time) / 100)));
+    this.msgGame = `Has ganado ${exp} de experencia`;
+
+    //guardar datos
+    this.datos.game.push({ exp: exp, level: this.level, time: time, type: this.typeLevel});
     const data = {
-      exp: (this.datos.exp + this.exp)
+      exp: (this.datos.exp + exp),
+      game: this.datos.game,
     }
-    this.usuarioSvc.updateUsuarioExp(data,this.id);
+    this.usuarioSvc.updateUsuarioExp(data, this.id);
   }
 }

@@ -5,13 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDxt179dJ98BYnyhsIIfkV64Vcdsx6mkWg",
-    authDomain: "login-5d27b.firebaseapp.com",
-    projectId: "login-5d27b",
-    storageBucket: "login-5d27b.appspot.com",
-    messagingSenderId: "70700626858",
-    appId: "1:70700626858:web:da6f9b3fbc8a50c2fff1d3",
-    measurementId: "G-44MCQ72TRN"
+    apiKey: "AIzaSyDgQIEw_-WrtWkAlFAtZrHjH5G1VBkTXMA",
+    authDomain: "angular-didactica.firebaseapp.com",
+    projectId: "angular-didactica",
+    storageBucket: "angular-didactica.appspot.com",
+    messagingSenderId: "814217891585",
+    appId: "1:814217891585:web:0bcfcfe907746ad3539500"
 
   },
 
@@ -36,5 +35,12 @@ apiKey: "AIzaSyDxt179dJ98BYnyhsIIfkV64Vcdsx6mkWg",
   appId: "1:70700626858:web:da6f9b3fbc8a50c2fff1d3",
   measurementId: "G-44MCQ72TRN"
 
+mike
+apiKey: "AIzaSyDgQIEw_-WrtWkAlFAtZrHjH5G1VBkTXMA",
+    authDomain: "angular-didactica.firebaseapp.com",
+    projectId: "angular-didactica",
+    storageBucket: "angular-didactica.appspot.com",
+    messagingSenderId: "814217891585",
+    appId: "1:814217891585:web:0bcfcfe907746ad3539500"
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.

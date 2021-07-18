@@ -34,7 +34,8 @@ export class UsuarioService {
       .collection("usuarios")
       .doc(id)
       .update({
-        exp: usuario.exp
+        exp: usuario.exp,
+        game: usuario.game
       });
   }
 
