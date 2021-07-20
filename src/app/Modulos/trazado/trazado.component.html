@@ -1,7 +1,23 @@
 <div id="trazado_content">
-  <h1>Trazado de letras</h1>
-  <img src="./assets/vocales.png" alt="vocales">
-  <div class="clearfix"></div>
-  <canvas id="canvas"></canvas>
+  <h1 id="title">Trazado de  Vocales</h1>
+  <div id="letras">
+    <ul>
+      <li><a href="assets/va.gif" target="image_vocal" class="vocal a">A</a></li>
+      <li><a href="assets/ve.gif" target="image_vocal" class="vocal e">E</a></li>
+      <li><a href="assets/vi.gif" target="image_vocal" class="vocal i">I</a></li>
+      <li><a href="assets/vo.gif" target="image_vocal" class="vocal o">O</a></li>
+      <li><a href="assets/vu.gif" target="image_vocal" class="vocal u">U</a></li>
+    </ul>
+  </div>
+
+  <div id="herramientas_pintar">
+    <div class="canvascontainer">
+      <canvas id="canvas"></canvas>
+      <input type="color" id="color" oninput="defcolor(this.value);">
+      <input type="range" id="grosor" oninput="defgrosor(this.value);" min="1" max="5" value="1">
+      <button type="reset" id="limpiame">Limpiar</button>
+    </div>
+    <iframe id="image_vocal" name="image_vocal" scrolling="no"></iframe>
+  </div>
 </div>
 

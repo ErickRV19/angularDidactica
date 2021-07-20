@@ -1,0 +1,69 @@
+<!-- Background image -->
+<div class="p-5 text-center bg-image" style=" background-image: url('../../../assets/fondo.jpg'); height:400px;" >
+  <div class="mask" >
+    <div class="d-flex justify-content-left align-items-center h-1700">
+      <div class="text-white">
+        <div class="img-contenedor"><img src="../../../assets/exploradores.png"></div>
+      </div>
+      <div class="text-white">
+        <div class="img-contenedor"><img src="../../../assets/curiosos.png"></div>
+      </div>
+      <div class="text-white">
+        <h1 class="mb-1">REFORZAMIENTO DE</h1>
+        <h1 class="mb-1">LECTURA Y ESCRITURA</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Background image -->
+<div class="row row-cols-1 row-cols-md-4 g-2">
+  <div class="col">
+    <div class="card" >
+      <a routerLink="./letras">
+        <img src="../../../assets/letras.jpg" class="card-img-top"/></a>
+      <div class="card-body">
+        <h1 class="card-title"align="center"> <img src="../../../assets/audio.jpg" width="100" height="100"></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <a routerLink="./palabras">
+        <img src="../../../assets/palabras.jpg" class="card-img-top"/></a>
+      <div class="card-body">
+        <h1 class="card-title" align="center"><img src="../../../assets/audio.jpg" width="100" height="100"></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <a routerLink="./numeros">
+        <img src="../../../assets/numeros.jpg" class="card-img-top"/></a>
+      <div class="card-body">
+        <h1 class="card-title"align="center"><img src="../../../assets/audio.jpg" width="100" height="100"></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <a routerLink="./cantidades">
+        <img src="../../../assets/cantidades.jpg" class="card-img-top"/></a>
+      <div class="card-body">
+        <h1 class="card-title"align="center"><img src="../../../assets/audio.jpg" width="100" height="100"></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="text-black-50"><a routerLink="/tarjetas"> <img src="../../../assets/regreso.png" width="100" height="100"></a>
+    <div class="card-body">
+      <h1 class="card-title" align="center">REGRESAR</h1>
+    </div>
+  </div>
+  <div class="text-black-50"><a routerLink="/tarjetas"><img src="../../../assets/hogar.png" width="100" height="100"></a>
+    <div class="card-body">
+      <h1 class="card-title" align="center">INICIO</h1>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

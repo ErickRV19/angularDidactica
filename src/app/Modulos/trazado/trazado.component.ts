@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {CargarScriptsService} from "./cargar-scripts.service";
 
 @Component({
   selector: 'app-trazado',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trazado.component.css']
 })
 export class TrazadoComponent implements OnInit {
-
-  constructor() { }
+  constructor( private  _CargarScripts:CargarScriptsService)
+  {
+    _CargarScripts.Carga(["app"]);
+  }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,76 @@
+<div class="main" align="center">
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" align="Center">
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <button type="button" class="btn btn-primary" routerLink="/jue1">1</button>
+      <button type="button" class="btn btn-primary" routerLink="/jue2">2</button>
+      <button type="button" class="btn btn-primary" routerLink="/jue3">3</button>
+    </div>
+  </div>
+  <h1>A completa las palabras</h1>
+  <h3>¡ A jugar !</h3>
+  <h4>Para iniciar con el juego debes a completar las palabras de la siguiente manera:.</h4>
+
+  <img src="/assets/palabras/abeja.jpg" width="370" height="350"/>
+</div>
+
+<div cdkDropListGroup class="COntainer">
+  <div class="example-container">
+    <div
+      cdkDropList
+      [cdkDropListData]="letraCard"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)" 
+      cdkDropListOrientation="horizontal">
+      <div class="example-box" *ngFor="let item of letraCard" cdkDrag>
+          <img [src]="item.img" alt="">
+      </div>
+    </div>
+  </div>
+
+    
+    <h1>Suelta aqui la vocal correcta</h1>
+  <div class="example-container cont2">
+    
+    <img src="/assets/palabras/a.jpg" width="370" height="350"/>
+    <div
+      cdkDropList
+      [cdkDropListData]="letrasGame"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+      cdkDropListOrientation="horizontal">
+      <div class="example-box" *ngFor="let item of letrasGame" cdkDrag>
+          <img [src]="item.img" alt="">
+      </div>
+    </div>
+    <img src="/assets/palabras/ja.jpg" width="370" height="350"/>
+  </div>
+  
+
+  <div id="mensaje" clase="mensaje">
+    <p (click)="toggleMessage()">X</p>
+    <h1>Has ganado. Es la vocal correcta</h1>
+    <a href="">Volver a jugar</a>
+    <a href="">salir</a>
+  </div>
+</div>
+
+<div class="main" align="center">
+  <h1>¡Acompleta YA!</h1>
+
+  
+</div>
+<div class="d-flex justify-content-center">
+  <div class="text-black-50"><a routerLink="/lectura-escritura"> <img src="../../../assets/regreso.png" width="100" height="100"></a>
+    <div class="card-body">
+      <h1 class="card-title" align="center">REGRESAR</h1>
+    </div>
+  </div>
+  <div class="text-black-50"><a routerLink="/tarjetas"><img src="../../../assets/hogar.png" width="100" height="100"></a>
+    <div class="card-body">
+      <h1 class="card-title" align="center">INICIO</h1>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+

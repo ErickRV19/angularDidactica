@@ -1,0 +1,69 @@
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" align="Center">
+  <div class="btn-group me-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn-primary" href="./num" routerLink="num">nivel1</button>
+    <button type="button" class="btn btn-primary" href="./niv2" routerLink="/niv2">nivel2</button>
+    <button type="button" class="btn btn-primary" href="./niv3" routerLink="/niv3">nivel3</button>
+  </div>
+</div>
+<br>
+<div class="main" align="center">
+  <h1>Selecciona el número correcto</h1>
+  <h3>¡ A jugar !</h3>
+  <h4>Para iniciar con el juego, cuenta ¿Cuantos lapices hay? debes arrastrar el número correcto del total de lapices:</h4>
+  <img src="/assets/letra_num/lapicesa.jpg" width="170" height="150"/>
+</div>
+<div cdkDropListGroup class="COntainer">
+  <div class="example-container">
+    <div
+      cdkDropList
+      [cdkDropListData]="letraCard"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+      cdkDropListOrientation="horizontal">
+      <div class="example-box" *ngFor="let item of letraCard" cdkDrag>
+        <img [src]="item.img" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="main" align="center">
+    <h1>¡Seleccionalo YA!</h1>
+  </div>
+  <div class="example-container">
+    <h1>Suelta aquí el número correcto</h1>
+    <div
+      cdkDropList
+      [cdkDropListData]="letrasGame"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+      cdkDropListOrientation="horizontal">
+      <div class="example-box" *ngFor="let item of letrasGame" cdkDrag>
+        <img [src]="item.img" alt="">
+      </div>
+    </div>
+  </div>
+
+
+  <div id="mensaje" clase="mensaje">
+    <p (click)="toggleMessage()">X</p>
+    <h1>Has ganado. La escribiste correctamente</h1>
+    <a href="">Volver a jugar</a>
+    <a href="">salir</a>
+  </div>
+
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="text-black-50"><a routerLink="/lectura-escritura"> <img src="../../../assets/regreso.png" width="100" height="100"></a>
+    <div class="card-body">
+      <h1 class="card-title" align="center">REGRESAR</h1>
+    </div>
+  </div>
+  <div class="text-black-50"><a routerLink="/tarjetas"><img src="../../../assets/hogar.png" width="100" height="100"></a>
+    <div class="card-body">
+      <h1 class="card-title" align="center">INICIO</h1>
+
+    </div>
+  </div>
+</div>
+<div class="box" cdkDrag>Drag me around!</div>
+<router-outlet></router-outlet>

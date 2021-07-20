@@ -15,6 +15,7 @@ const app_routes: Routes = [
   { path: 'recuperar', component: RecuperarComponent },
   { path: 'register', component: RegistroComponent },
   { path: 'memorama', loadChildren: () => import('./Modulos/memorama/memorama.module').then(m => m.MemoramaModule)},
+  { path: '', loadChildren: () => import('./Modulos/letras-num/letras-num.module').then(m => m.LetrasNumModule)},
   { path: 'trazado', component: TrazadoComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
